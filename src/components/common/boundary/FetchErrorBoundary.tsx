@@ -1,8 +1,8 @@
-import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import { BarLoader } from "react-spinners";
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { BarLoader } from 'react-spinners';
 
-import { FetchErrorFallback } from "./FetchErrorFallback";
+import { FetchErrorFallback } from './FetchErrorFallback';
 
 interface FetchErrorBoundaryProps {
   children: React.ReactNode;
