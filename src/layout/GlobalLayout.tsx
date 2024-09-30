@@ -7,9 +7,9 @@ import Footer from 'components/common/Footer';
 
 const GlobalLayout = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen w-full flex-col items-center">
       <Header />
-      <main className="mt-[5rem] min-h-[calc(100vh_-_150px)] flex-grow p-6 md:px-16 lg:px-24">
+      <main className="mx-auto mt-[10rem] min-h-[calc(100vh_-_20rem)] w-full max-w-[1200px]">
         <Outlet />
       </main>
       <Footer />

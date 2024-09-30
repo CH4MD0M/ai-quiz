@@ -28,7 +28,7 @@ const Card = ({ onClick, title, imageUrl, index }: CardProps) => {
         <img
           src={imageUrl}
           alt={title}
-          className="h-full w-full object-contain p-[7rem] transition-transform duration-300 group-hover:scale-110"
+          className="h-full w-full object-contain p-[7rem] transition-transform duration-300 group-hover:scale-110 sm:p-[6rem] md:p-[4rem]"
         />
       </div>
     </motion.div>

@@ -21,9 +21,9 @@ const MainTopicStep = ({ onClick }: MainTopicStepProps) => {
   return (
     <>
       <h1 className="text-center text-[3.5rem] font-bold md:text-[4rem]">
-        <span className="text-green-500">메인 주제</span>를 선택해 주세요
+        <span className="text-sky-600">메인 주제</span>를 선택해 주세요
       </h1>
-      <div className="mt-[10rem] grid grid-cols-1 justify-items-center gap-[4rem] md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-[10rem] grid grid-cols-1 justify-items-center gap-[4rem] md:grid-cols-3">
         {topicsData?.map(({ name, image }, index) => (
           <Card
             key={name}

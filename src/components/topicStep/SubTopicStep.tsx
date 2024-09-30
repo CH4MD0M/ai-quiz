@@ -33,7 +33,7 @@ const SubTopicStep = ({ onBack }: SubTopicStepProps) => {
         <h1 className="text-center text-[3.5rem] font-bold md:text-[4rem]">{mainTopic}</h1>
       </div>
 
-      <div className="grid grid-cols-1 justify-items-center gap-[4rem] md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 justify-items-center gap-[4rem] md:grid-cols-4">
         {selectedMainTopic?.subTopics?.map(({ name, image }, index) => (
           <Card
             key={name}
