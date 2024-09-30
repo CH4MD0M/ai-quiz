@@ -1,0 +1,62 @@
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { IoMdClose } from 'react-icons/io';
+
+interface ModalWrapperProps {
+  children: React.ReactNode;
+  onClose: () => void;
+}
+
+const ModalWrapper = ({ children, onClose }: ModalWrapperProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleContainerClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      handleClose();
+    }
+  };
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    setTimeout(onClose, 300);
+  };
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={handleContainerClick}
+          className="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50"
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative rounded-lg bg-white p-6 shadow-lg"
+          >
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={handleClose}
+              className="absolute right-2 top-2 text-gray-500 hover:text-gray-700"
+            >
+              <IoMdClose />
+            </motion.button>
+            {children}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default ModalWrapper;
