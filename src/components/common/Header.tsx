@@ -1,9 +1,12 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => {
   return (
-    <header className="bg-red-500 text-white p-4 fixed top-0 left-0 right-0 h-[72px]">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-xl font-bold">CSQuizHub</div>
-        <nav>{/* Add navigation items here */}</nav>
+    <header className="fixed inset-x-0 top-0 z-10 h-[5rem] bg-blue-500 p-4 text-white">
+      <div className="container mx-auto flex items-center justify-between">
+        <div className="text-[2rem] font-bold">
+          <Link to="/">CSQuizHub</Link>
+        </div>
       </div>
     </header>
   );

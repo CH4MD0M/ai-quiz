@@ -12,7 +12,7 @@ export const FetchErrorBoundary = ({ children }: FetchErrorBoundaryProps) => {
     <ErrorBoundary FallbackComponent={FetchErrorFallback}>
       <Suspense
         fallback={
-          <div className="w-full h-full min-h-[300px] flex justify-center items-center">
+          <div className="flex size-full min-h-[600px] min-w-[600px] items-center justify-center">
             <BarLoader color="#4565cc" />
           </div>
         }

@@ -1,9 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="bg-red-500 text-white p-2 text-center h-[28px]">
-      <div className="container mx-auto">
-        <p className="text-sm">&copy; 2024 CSQuizHub. All rights reserved.</p>
-      </div>
+    <footer className="flex min-h-[100px] items-center justify-center bg-blue-500 p-2 text-center text-white">
+      <p className="text-sm">&copy; 2024 CSQuizHub. All rights reserved.</p>
     </footer>
   );
 };

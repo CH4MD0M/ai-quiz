@@ -35,12 +35,12 @@ export const FetchErrorFallback = ({ error, resetErrorBoundary }: FallbackProps)
   const errorMessage = getErrorMessage(error);
 
   return (
-    <div role="alert" className="p-4 bg-red-100 border border-red-400 rounded">
+    <div role="alert" className="rounded border border-red-400 bg-red-100 p-4">
       <h2 className="text-lg font-semibold text-red-800">에러가 발생했습니다</h2>
       <p className="text-red-600">{errorMessage}</p>
       <button
         onClick={handleClickReset}
-        className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        className="mt-2 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
       >
         다시 시도
       </button>
