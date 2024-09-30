@@ -1,9 +1,8 @@
-import { useModalStore } from 'store/useModalStore';
+import { useModalActions, useModalStore } from 'store/useModalStore';
 
 export const useModal = () => {
   const openedModals = useModalStore(state => state.openedModals);
-  const openModal = useModalStore(state => state.actions.openModal);
-  const closeModal = useModalStore(state => state.actions.closeModal);
+  const { openModal, closeModal } = useModalActions();
 
   return { openedModals, openModal, closeModal };
 };

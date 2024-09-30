@@ -1,4 +1,4 @@
-import { useTopicStore } from 'store/useTopicStore';
+import { useTopicActions } from 'store/useTopicStore';
 import { useGetTopics } from 'query/useGetTopics';
 
 // Components
@@ -11,7 +11,7 @@ interface MainTopicStepProps {
 const MainTopicStep = ({ onClick }: MainTopicStepProps) => {
   const { data: topicsData } = useGetTopics();
 
-  const { setMainTopic } = useTopicStore(state => state.actions);
+  const { setMainTopic } = useTopicActions();
 
   const cardClickHandler = (selectedTopic: string) => {
     setMainTopic(selectedTopic);

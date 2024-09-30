@@ -18,7 +18,7 @@ const initialState: State = {
   subTopic: '',
 };
 
-export const useTopicStore = createStore<State & Actions>(set => ({
+export const useTopicStore = createStore<State & Actions>('topics', set => ({
   ...initialState,
   actions: {
     setMainTopic: selectedMainTopic =>
@@ -29,3 +29,5 @@ export const useTopicStore = createStore<State & Actions>(set => ({
     resetState: () => set(initialState),
   },
 }));
+
+export const useTopicActions = () => useTopicStore(state => state.actions);

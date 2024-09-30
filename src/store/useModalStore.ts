@@ -17,16 +17,26 @@ const initialState: State = {
   openedModals: {},
 };
 
-export const useModalStore = createStore<State & Actions>(set => ({
+export const useModalStore = createStore<State & Actions>('modal', set => ({
   ...initialState,
   actions: {
     openModal: (modalName, modal) =>
-      set(state => {
-        state.openedModals[modalName] = modal;
-      }),
+      set(
+        state => {
+          state.openedModals[modalName] = modal;
+        },
+        undefined,
+        'modal/openModal',
+      ),
     closeModal: (modalName: ModalName) =>
-      set(state => {
-        delete state.openedModals[modalName];
-      }),
+      set(
+        state => {
+          delete state.openedModals[modalName];
+        },
+        undefined,
+        'modal/closeModal',
+      ),
   },
 }));
+
+export const useModalActions = () => useModalStore(state => state.actions);

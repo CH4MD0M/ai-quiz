@@ -1,4 +1,4 @@
-import { useTopicStore } from 'store/useTopicStore';
+import { useTopicActions, useTopicStore } from 'store/useTopicStore';
 import { useGetTopics } from 'query/useGetTopics';
 import { useModal } from 'hooks/useModal';
 
@@ -16,8 +16,8 @@ const SubTopicStep = ({ onBack }: SubTopicStepProps) => {
   const { data: topicsData } = useGetTopics();
 
   const mainTopic = useTopicStore(state => state.mainTopic);
+  const { setSubTopic } = useTopicActions();
   const selectedMainTopic = topicsData.find(topic => topic.name === mainTopic);
-  const setSubTopic = useTopicStore(state => state.actions.setSubTopic);
 
   const cardClickHandler = (selectedTopic: string) => {
     setSubTopic(selectedTopic);
