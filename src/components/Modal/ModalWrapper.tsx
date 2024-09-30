@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoMdClose } from 'react-icons/io';
+
+import { useModalAnimation } from 'hooks/useModalAnimation';
 
 interface ModalWrapperProps {
   children: React.ReactNode;
@@ -8,21 +9,12 @@ interface ModalWrapperProps {
 }
 
 const ModalWrapper = ({ children, onClose }: ModalWrapperProps) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const { isVisible, handleClose } = useModalAnimation(onClose);
 
   const handleContainerClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       handleClose();
     }
-  };
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const handleClose = () => {
-    setIsVisible(false);
-    setTimeout(onClose, 300);
   };
 
   return (
