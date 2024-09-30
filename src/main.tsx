@@ -4,7 +4,7 @@ import App from 'App';
 import QueryProvider from 'components/common/QueryProvider';
 
 // Tailwind
-import './tailwind.css';
+import 'styles/tailwind.css';
 
 // Mocks
 import { worker } from 'mocks/browser';
