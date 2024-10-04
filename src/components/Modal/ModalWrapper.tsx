@@ -33,13 +33,13 @@ const ModalWrapper = ({ children, onClose }: ModalWrapperProps) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="relative rounded-lg bg-white p-6 shadow-lg"
+            className="relative rounded-[10px] bg-white px-[2rem] py-[1.5rem] shadow-lg"
           >
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleClose}
-              className="absolute right-2 top-2 text-gray-500 hover:text-gray-700"
+              className="absolute right-[2rem] top-[2rem] text-[3rem] text-gray-500 hover:text-gray-700"
             >
               <IoMdClose />
             </motion.button>

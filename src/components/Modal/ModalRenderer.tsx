@@ -1,12 +1,11 @@
 import { createPortal } from 'react-dom';
 
 import { ModalName } from 'types/modal';
-import { useModal } from 'hooks/useModal';
-
+import { useModalStore } from 'store/useModalStore';
 import ModalWrapper from './ModalWrapper';
 
 const ModalRenderer = () => {
-  const { openedModals, closeModal } = useModal();
+  const { closeModal, openedModals } = useModalStore();
   const element = document.getElementById('modal') as Element;
 
   const renderModal = Object.entries(openedModals).map(([modalName, modal]) => {
