@@ -1,4 +1,6 @@
-export const topicVariant = {
+import type { Variants } from 'framer-motion';
+
+export const stepVariant: Variants = {
   initial: (progressDirection: number) => ({
     x: `${120 * progressDirection}%`,
     opacity: 0,
