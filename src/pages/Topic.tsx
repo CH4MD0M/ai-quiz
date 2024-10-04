@@ -1,65 +1,56 @@
-import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
+import { useEffect } from 'react';
 
-import { StepProps } from 'types/topic';
-import { topicVariant } from 'utils/framerVariants';
-import useTopicSelection from 'hooks/useTopicSelection';
+import { MotionConfig } from 'framer-motion';
+
+import { StepItem } from 'types/step';
+import { useQuizConfigStore } from 'store/useQuizConfigStore';
+import useTopicStep from 'hooks/useStep';
 
 // Components
 import { FetchErrorBoundary } from 'components/boundary/FetchErrorBoundary';
-import MainTopicStep from 'components/topicStep/MainTopicStep';
-import SubTopicStep from 'components/topicStep/SubTopicStep';
+import AnimteStep from 'components/Step/AnimteStep';
+import MainTopicStep from 'components/Step/MainTopicStep';
+import SubTopicStep from 'components/Step/SubTopicStep';
 
-const steps: StepProps[] = [
-  {
-    title: 'Main Topic',
-    Component: MainTopicStep,
-  },
-  {
-    title: 'Sub Topic',
-    Component: SubTopicStep,
-  },
-];
+// StepComponent List
+const steps: StepItem[] = [{ Component: MainTopicStep }, { Component: SubTopicStep }];
 
 const Topic = () => {
+  const { resetQuizConfigState } = useQuizConfigStore();
+
   const {
     currentStepIndex,
     CurrentStep,
     isFirstStep,
     isLastStep,
     progressDirection,
-    prevStep,
-    nextStep,
-  } = useTopicSelection(steps);
+    goToPrevStep,
+    goToNextStep,
+  } = useTopicStep(steps);
 
   const handleNext = () => {
-    if (isLastStep) return;
-    nextStep();
+    if (!isLastStep) goToNextStep();
   };
 
   const handleBack = () => {
-    if (isFirstStep) return;
-    prevStep();
+    if (!isFirstStep) goToPrevStep();
   };
+
+  useEffect(() => {
+    resetQuizConfigState();
+  }, [resetQuizConfigState]);
 
   return (
     <FetchErrorBoundary>
-      <MotionConfig transition={{ type: 'spring', bounce: 0, duration: 0.6 }}>
-        <div className="overflow-hidden">
-          <AnimatePresence custom={progressDirection} mode="wait">
-            <motion.div
-              key={currentStepIndex}
-              custom={progressDirection}
-              variants={topicVariant}
-              initial="initial"
-              animate="normal"
-              exit="exit"
-              className="mx-auto my-[2rem] px-[4rem]"
-            >
-              <CurrentStep onClick={handleNext} onBack={handleBack} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </MotionConfig>
+      <section className="mx-auto w-full max-w-[120rem]">
+        <MotionConfig transition={{ type: 'spring', bounce: 0, duration: 0.6 }}>
+          <div className="w-full overflow-hidden">
+            <AnimteStep progressDirection={progressDirection} currentStepIndex={currentStepIndex}>
+              <CurrentStep onNext={handleNext} onBack={handleBack} />
+            </AnimteStep>
+          </div>
+        </MotionConfig>
+      </section>
     </FetchErrorBoundary>
   );
 };

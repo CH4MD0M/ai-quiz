@@ -1,4 +1,6 @@
-import { createStore } from 'utils/createStore';
+import { create } from 'zustand';
+import { immer } from 'zustand/middleware/immer';
+import { devtools } from 'zustand/middleware';
 
 interface State {
   mainTopic: string;
@@ -6,11 +8,9 @@ interface State {
 }
 
 interface Actions {
-  actions: {
-    setMainTopic: (selectedTopic: string) => void;
-    setSubTopic: (selectedTopic: string) => void;
-    resetState: () => void;
-  };
+  setMainTopic: (selectedTopic: string) => void;
+  setSubTopic: (selectedTopic: string) => void;
+  resetTopicState: () => void;
 }
 
 const initialState: State = {
@@ -18,16 +18,15 @@ const initialState: State = {
   subTopic: '',
 };
 
-export const useTopicStore = createStore<State & Actions>('topics', set => ({
-  ...initialState,
-  actions: {
-    setMainTopic: selectedMainTopic =>
-      set({ mainTopic: selectedMainTopic }, undefined, 'topic/setMainTopic'),
-    setSubTopic: selectedSubTopic =>
-      set({ subTopic: selectedSubTopic }, undefined, 'topic/setSubTopic'),
-
-    resetState: () => set(initialState),
-  },
-}));
-
-export const useTopicActions = () => useTopicStore(state => state.actions);
+export const useTopicStore = create<State & Actions>()(
+  devtools(
+    immer(set => ({
+      ...initialState,
+      setMainTopic: selectedMainTopic =>
+        set({ mainTopic: selectedMainTopic }, undefined, 'topic/setMainTopic'),
+      setSubTopic: selectedSubTopic =>
+        set({ subTopic: selectedSubTopic }, undefined, 'topic/setSubTopic'),
+      resetTopicState: () => set(initialState),
+    })),
+  ),
+);
