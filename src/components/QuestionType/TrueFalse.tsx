@@ -25,16 +25,20 @@ const TrueFalseQuestion = ({ quizData }: TrueFalseQuestionProps) => {
       <div className="mt-[3rem] flex space-x-4 text-gray-100">
         <button
           onClick={() => handleAnswerClick(true)}
-          className={`flex flex-1 items-center justify-center rounded-[10px] py-[3rem] text-[6rem] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] transition-colors ${
-            userAnswer === true ? 'text-blue-600' : 'bg-white hover:bg-gray-200'
+          className={`flex flex-1 items-center justify-center rounded-[10px] py-[3rem] text-[6rem] transition-all hover:shadow-[0_2px_4px_0_rgba(7,84,249,0.4)] ${
+            userAnswer === true
+              ? 'border-[1px] border-blue-200 text-blue-600 shadow-[0_2px_4px_0_rgba(7,84,249,0.4)]'
+              : 'bg-white'
           }`}
         >
           <FaRegCircle />
         </button>
         <button
           onClick={() => handleAnswerClick(false)}
-          className={`flex flex-1 items-center justify-center rounded-[10px] py-[3rem] text-[7rem] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] transition-colors ${
-            userAnswer === false ? 'text-blue-600' : 'bg-white hover:bg-gray-200'
+          className={`flex flex-1 items-center justify-center rounded-[10px] py-[3rem] text-[7rem] transition-all hover:shadow-[0_2px_4px_0_rgba(7,84,249,0.4)] ${
+            userAnswer === false
+              ? 'border-[1px] border-blue-200 text-blue-600 shadow-[0_2px_4px_0_rgba(7,84,249,0.4)]'
+              : 'bg-white'
           }`}
         >
           <FaXmark />
