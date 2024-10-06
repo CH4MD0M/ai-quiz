@@ -24,8 +24,8 @@ const SelectDropdown = <K extends ConfigKey>({ selectId, options, label }: Selec
   };
 
   return (
-    <div className="mb-4 flex flex-col">
-      <label className="mb-2 text-[1.7rem] font-medium text-neutral-400">{label}</label>
+    <div className="mb-[1rem] flex flex-col">
+      <label className="mb-[1rem] text-[1.7rem] font-medium text-neutral-400">{label}</label>
       <div className="relative" ref={ref}>
         <motion.div
           className="flex cursor-pointer items-center justify-between rounded-md border p-[1rem] text-[1.7rem]"

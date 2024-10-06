@@ -64,32 +64,3 @@ const Button = ({
 };
 
 export default Button;
-
-/* 
-
-<Button 
-  variant="primary" 
-  size="md" 
-  className="custom-class"
->
-  Button
-</Button>
-
-<Button 
-  variant="secondary" 
-  size="sm" 
-  leftIcon={<CheckIcon />} 
-  className="another-custom-class"
->
-  Button
-</Button>
-
-<Button 
-  variant="ghost" 
-  state="selected" 
-  rightIcon={<SettingsIcon />}
->
-  Button
-</Button>
-
-*/
