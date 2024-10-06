@@ -8,6 +8,7 @@ import GlobalLayout from 'layout/GlobalLayout';
 const HomePage = lazy(() => import('pages/Home'));
 const SelectTopicPage = lazy(() => import('pages/Topic'));
 const SolveProblemPage = lazy(() => import('pages/Solve'));
+const ResultPage = lazy(() => import('pages/Result'));
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
         element: <SelectTopicPage />,
       },
       { path: 'solve', element: <SolveProblemPage /> },
+      { path: 'result', element: <ResultPage /> },
     ],
   },
 ]);
