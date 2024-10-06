@@ -10,7 +10,7 @@ interface AnimteStepProps {
 
 const AnimteStep = ({ progressDirection, currentStepIndex, children }: AnimteStepProps) => {
   return (
-    <AnimatePresence custom={progressDirection} mode="wait">
+    <AnimatePresence custom={progressDirection} mode="wait" initial={false}>
       <motion.div
         key={currentStepIndex}
         custom={progressDirection}
@@ -18,6 +18,7 @@ const AnimteStep = ({ progressDirection, currentStepIndex, children }: AnimteSte
         initial="initial"
         animate="normal"
         exit="exit"
+        className="flex flex-grow flex-col"
       >
         {children}
       </motion.div>

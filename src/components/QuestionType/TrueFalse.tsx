@@ -1,3 +1,6 @@
+import { FaRegCircle } from 'react-icons/fa6';
+import { FaXmark } from 'react-icons/fa6';
+
 import { TrueFalseQuizData } from 'types/quiz';
 import { useQuizStore } from 'store/useQuizStore';
 
@@ -14,27 +17,30 @@ const TrueFalseQuestion = ({ quizData }: TrueFalseQuestionProps) => {
   };
 
   return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-semibold">{question}</h3>
-      <div className="flex space-x-4">
+    <>
+      <span className="text-[2.2rem] font-semibold text-indigo-700">
+        Q{currentQuestionIndex + 1}
+      </span>
+      <h3 className="text-[2rem] font-normal">{question}</h3>
+      <div className="mt-[3rem] flex space-x-4 text-gray-100">
         <button
           onClick={() => handleAnswerClick(true)}
-          className={`flex-1 rounded-lg py-3 transition-colors ${
-            userAnswer === true ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'
+          className={`flex flex-1 items-center justify-center rounded-[10px] py-[3rem] text-[6rem] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] transition-colors ${
+            userAnswer === true ? 'text-blue-600' : 'bg-white hover:bg-gray-200'
           }`}
         >
-          O
+          <FaRegCircle />
         </button>
         <button
           onClick={() => handleAnswerClick(false)}
-          className={`flex-1 rounded-lg py-3 transition-colors ${
-            userAnswer === false ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'
+          className={`flex flex-1 items-center justify-center rounded-[10px] py-[3rem] text-[7rem] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] transition-colors ${
+            userAnswer === false ? 'text-blue-600' : 'bg-white hover:bg-gray-200'
           }`}
         >
-          X
+          <FaXmark />
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

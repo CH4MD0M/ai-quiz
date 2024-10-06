@@ -30,7 +30,7 @@ const QuizStep = ({ quizData, quizType }: QuizStepProps) => {
     }
   };
 
-  return <div className="my-[3rem]">{renderQuestion()}</div>;
+  return <div className="my-auto">{renderQuestion()}</div>;
 };
 
 export default QuizStep;
