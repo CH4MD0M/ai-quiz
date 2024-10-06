@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
-import { devtools } from 'zustand/middleware';
-import { persist, createJSONStorage } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 
 import { QuizDataType } from 'types/quiz';
 
@@ -11,7 +10,7 @@ interface State {
 }
 
 interface Actions {
-  setQuizDataList: (questionList: QuizDataType[]) => void;
+  setQuizDataList: (quizDataList: QuizDataType[]) => void;
   setUserAnswer: (index: number, answer: string | boolean | null) => void;
   nextQuestion: () => void;
   prevQuestion: () => void;
@@ -28,28 +27,31 @@ export const useQuizStore = create<State & Actions>()(
     persist(
       immer((set, get) => ({
         ...initialState,
-        setQuizDataList: quizDataList => set({ quizDataList }),
+        setQuizDataList: quizDataList => set({ quizDataList }, undefined, 'quiz/setQuizDataList'),
         setUserAnswer: (index, answer) =>
-          set(state => {
-            state.quizDataList[index].userAnswer = answer;
-          }),
+          set(
+            state => {
+              state.quizDataList[index].userAnswer = answer;
+            },
+            undefined,
+            'quiz/setUserAnswer',
+          ),
         nextQuestion: () => {
           const { currentQuestionIndex, quizDataList } = get();
           if (currentQuestionIndex < quizDataList.length - 1) {
-            set({ currentQuestionIndex: currentQuestionIndex + 1 });
+            set({ currentQuestionIndex: currentQuestionIndex + 1 }, undefined, 'quiz/nextQuestion');
           }
         },
         prevQuestion: () => {
           const { currentQuestionIndex } = get();
           if (currentQuestionIndex > 0) {
-            set({ currentQuestionIndex: currentQuestionIndex - 1 });
+            set({ currentQuestionIndex: currentQuestionIndex - 1 }, undefined, 'quiz/prevQuestion');
           }
         },
         resetQuizData: () => set(initialState),
       })),
       {
-        name: 'quiz-storage',
-        storage: createJSONStorage(() => localStorage),
+        name: 'quiz-data',
       },
     ),
   ),

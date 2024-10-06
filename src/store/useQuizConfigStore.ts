@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
-import { devtools } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 
 import { DifficultyLevel, QuizCount, QuizType } from 'types/quiz';
 
@@ -23,10 +23,15 @@ const initialState: State = {
 
 export const useQuizConfigStore = create<State & Actions>()(
   devtools(
-    immer(set => ({
-      ...initialState,
-      updateConfig: (key, value) => set({ [key]: value }),
-      resetQuizConfigState: () => set(initialState),
-    })),
+    persist(
+      immer(set => ({
+        ...initialState,
+        updateConfig: (key, value) => set({ [key]: value }),
+        resetQuizConfigState: () => set(initialState),
+      })),
+      {
+        name: 'quiz-config',
+      },
+    ),
   ),
 );
