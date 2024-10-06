@@ -10,7 +10,7 @@ const GlobalLayout = () => {
     <div className="flex min-h-screen w-full flex-col">
       <Header />
       <main className="flex flex-grow items-center justify-center">
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="w-full md:px-[4rem]">
           <Outlet />
         </div>
       </main>

@@ -22,4 +22,7 @@
   html {
     @apply w-full font-[Pretendard] text-[62.5%];
   }
+  body {
+    @apply text-[1.6rem];
+  }
 }
