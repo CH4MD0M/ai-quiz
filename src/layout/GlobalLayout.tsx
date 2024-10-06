@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 // Components
 import ModalRenderer from 'components/Modal/ModalRenderer';
 import Header from 'components/common/Header';
-import Footer from 'components/common/Footer';
 
 const GlobalLayout = () => {
   return (
@@ -14,7 +13,6 @@ const GlobalLayout = () => {
           <Outlet />
         </div>
       </main>
-      <Footer />
       <ModalRenderer />
     </div>
   );
