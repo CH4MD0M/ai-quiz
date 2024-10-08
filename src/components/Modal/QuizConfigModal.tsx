@@ -51,9 +51,7 @@ const QuizConfigModal = ({ onClose }: QuizConfigModalProps) => {
   };
 
   return (
-    <div className="min-w-[400px] px-4 py-8">
-      <h2 className="mb-[3rem] text-center text-[2rem] font-bold text-gray-800">퀴즈 옵션 설정</h2>
-
+    <>
       <div className="mb-[3rem] flex items-center text-[2rem]">
         <MdTopic className="mr-[1rem] text-blue-600" size={24} />
         <span className="font-medium text-blue-800">{subTopic}</span>
@@ -80,7 +78,7 @@ const QuizConfigModal = ({ onClose }: QuizConfigModalProps) => {
           <HashLoader color="#93c5fd" size={80} />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -24,11 +24,11 @@ const QuizTypeButtons = <K extends ConfigKey>({
   return (
     <div className="mb-[1rem] flex flex-col">
       <label className="mb-[1rem] text-[1.7rem] font-medium text-neutral-400">{label}</label>
-      <div className="flex flex-wrap justify-center gap-[3rem]">
+      <div className="flex flex-wrap justify-center gap-[1rem] md:gap-[3rem]">
         {options.map(option => (
           <motion.button
             key={option as string}
-            className={`min-w-[10rem] rounded-[10px] px-[2rem] py-[1rem] text-[1.5rem] font-medium transition-colors ${
+            className={`min-w-[3rem] rounded-[10px] px-[2rem] py-[1rem] text-[1.5rem] font-medium transition-colors md:min-w-[10rem] ${
               value === option
                 ? 'border-[2px] border-blue-500'
                 : 'border-[2px] text-gray-700 hover:bg-blue-100'

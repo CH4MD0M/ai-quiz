@@ -21,7 +21,7 @@ const SubTopicStep = ({ onBack }: StepComponentProps) => {
   };
 
   return (
-    <div className="px-[4rem]">
+    <div className="mt-[4rem] px-[2rem] md:px-[4rem]">
       <div className="my-[2rem] mb-[2rem] flex flex-col-reverse items-center justify-center gap-[3rem] md:flex-row md:justify-start md:gap-0">
         <Button
           variant="primary"
@@ -31,7 +31,9 @@ const SubTopicStep = ({ onBack }: StepComponentProps) => {
         >
           뒤로가기
         </Button>
-        <h1 className="flex-1 text-center text-[3rem] font-bold md:text-[4rem]">{mainTopic}</h1>
+        <h1 className="flex-1 break-keep text-center text-[2.5rem] font-bold md:text-[4rem]">
+          {mainTopic}
+        </h1>
       </div>
 
       <div className="grid grid-cols-1 justify-items-center gap-[2rem] py-[4rem] md:grid-cols-3 md:gap-[4rem] lg:grid-cols-4">

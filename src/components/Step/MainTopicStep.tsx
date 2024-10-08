@@ -16,10 +16,10 @@ const MainTopicStep = ({ onNext }: StepComponentProps) => {
 
   return (
     <>
-      <h1 className="text-center text-[3.5rem] font-bold md:text-[4rem]">
+      <h1 className="my-[6rem] text-center text-[2.5rem] font-bold md:text-[4rem]">
         <span className="text-sky-600">메인 주제</span>를 선택해 주세요
       </h1>
-      <div className="mt-[10rem] grid grid-cols-1 justify-items-center gap-[4rem] p-[2rem] md:grid-cols-3 md:p-[4rem]">
+      <div className="grid grid-cols-1 justify-items-center gap-[4rem] p-[2rem] md:mt-[10rem] md:grid-cols-3">
         {topicsData?.map(({ name, image }, index) => (
           <Card
             key={name}

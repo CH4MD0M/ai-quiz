@@ -31,30 +31,32 @@ const Home = () => {
   return (
     <section className="mx-auto flex w-full max-w-[1200px] flex-col items-center p-[3rem] pb-0 text-center">
       <motion.div
-        className="mb-[3rem] flex flex-col items-center justify-center p-4 text-[5rem]"
+        className="mb-[3rem] flex flex-col items-center justify-center p-4 text-[3rem] md:text-[5rem]"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div className="mb-4 flex space-x-[1.5rem] font-bold">
+        <motion.div className="mb-4 flex gap-[.7rem] font-bold">
           <motion.div variants={wordVariants}>CS</motion.div>
           <motion.div variants={wordVariants}>실력향상을</motion.div>
           <motion.div variants={wordVariants}>위한</motion.div>
         </motion.div>
 
-        <motion.div className="mb-2 flex space-x-[1.2rem] font-bold">
-          <motion.div variants={wordVariants}>가장</motion.div>
-          <motion.div className="relative mx-2">
-            <motion.div className="z-10" variants={wordVariants}>
-              스마트한
+        <motion.div className="mb-2 flex flex-col space-x-[1.2rem] font-bold md:flex-row">
+          <div className="flex">
+            <motion.div variants={wordVariants}>가장</motion.div>
+            <motion.div className="relative mx-2">
+              <motion.div className="z-10" variants={wordVariants}>
+                스마트한
+              </motion.div>
+              <motion.img
+                src="https://res.cloudinary.com/dfdnn20e7/image/upload/v1728219007/quiz/underline_hqsrco.png"
+                className="absolute bottom-5 -z-10"
+                variants={underlineVariants}
+              />
             </motion.div>
-            <motion.img
-              src="https://res.cloudinary.com/dfdnn20e7/image/upload/v1728219007/quiz/underline_hqsrco.png"
-              className="absolute bottom-5 -z-10"
-              variants={underlineVariants}
-            />
-          </motion.div>
-          <motion.div variants={wordVariants}>선택,</motion.div>
+            <motion.div variants={wordVariants}>선택,</motion.div>
+          </div>
           <motion.div variants={wordVariants} className="font-bold text-blue-600">
             CSQuizHub
           </motion.div>

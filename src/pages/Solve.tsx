@@ -60,10 +60,10 @@ const Solve = () => {
   }, [currentQuestionIndex, setCurrentStepIndex]);
 
   return (
-    <div className="mx-auto flex min-h-[60rem] max-w-[70rem] flex-col rounded-[10px] bg-white p-[4rem] shadow-[0px_2px_4px_0px_rgba(0,0,0,0.4)] md:px-[6rem]">
+    <div className="mx-auto flex min-h-[60rem] max-w-[70rem] flex-col bg-white p-[1rem] md:rounded-[10px] md:p-[4rem] md:px-[6rem] md:shadow-[0px_2px_4px_0px_rgba(0,0,0,0.4)]">
       <ProgressBar />
 
-      <div className="flex flex-grow flex-col overflow-x-hidden md:px-[3rem]">
+      <div className="flex flex-grow flex-col overflow-x-hidden px-[1rem] md:px-[3rem]">
         <MotionConfig transition={{ type: 'spring', bounce: 0, duration: 0.6 }}>
           <AnimteStep progressDirection={progressDirection} currentStepIndex={currentStepIndex}>
             <CurrentStep />

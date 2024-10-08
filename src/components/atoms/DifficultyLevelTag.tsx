@@ -5,7 +5,7 @@ import { DifficultyLevel } from 'types/quiz';
 import cn from 'utils/cn';
 
 const difficultyLevelVariants = cva(
-  'flex items-center gap-[1rem] rounded-[10px] px-[1.2rem] py-[.5rem] text-[2rem]',
+  'flex items-center gap-[1rem] rounded-[10px] px-[1.2rem] py-[.5rem] text-[1.5rem] md:text-[2rem]',
   {
     variants: {
       level: {

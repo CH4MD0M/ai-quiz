@@ -36,12 +36,12 @@ const ResultPage = () => {
   const score = (correctCount / quizCount) * 100;
 
   return (
-    <div className="mx-auto my-[10rem] max-w-[900px] rounded-lg bg-white p-[2rem] shadow-[0_2px_4px_1px_rgba(0,0,0,0.1)] md:p-[4rem]">
-      <h1 className="text-center text-[3.5rem] font-bold">퀴즈 결과</h1>
+    <div className="mx-auto my-[5rem] max-w-[900px] rounded-lg bg-white p-[2rem] md:my-[10rem] md:p-[4rem] md:shadow-[0_2px_4px_1px_rgba(0,0,0,0.1)]">
+      <h1 className="text-center text-[2.5rem] font-bold md:text-[3.5rem]">퀴즈 결과</h1>
 
       <div className="mb-[6rem] p-[3rem] pb-0">
         <motion.div
-          className="mb-[6rem] flex items-center justify-center gap-[2rem] pb-[2rem]"
+          className="mb-[6rem] flex items-center justify-center gap-[2rem] pb-[2rem] text-[1.5rem]"
           variants={tagVariants}
           initial="hidden"
           animate="visible"
@@ -51,7 +51,7 @@ const ResultPage = () => {
           </motion.div>
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-[1rem] rounded-[10px] bg-blue-200 px-[1.2rem] py-[.5rem] text-[2rem] text-blue-600"
+            className="flex items-center gap-[1rem] rounded-[10px] bg-blue-200 px-[1.2rem] py-[.5rem] text-blue-600"
           >
             <MdTopic />
             <span className="font-medium">{selectedTopic}</span>
@@ -59,7 +59,7 @@ const ResultPage = () => {
         </motion.div>
 
         <motion.div
-          className="flex items-center justify-around gap-[5rem]"
+          className="flex flex-col items-center justify-around gap-[3rem] md:flex-row md:gap-[5rem]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
