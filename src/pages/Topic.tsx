@@ -4,6 +4,7 @@ import { MotionConfig } from 'framer-motion';
 
 import { StepItem } from 'types/step';
 import { useQuizConfigStore } from 'store/useQuizConfigStore';
+import { useSmoothScrollToTop } from 'hooks/useSmoothScrollToTop';
 import useTopicStep from 'hooks/useStep';
 
 // Components
@@ -39,6 +40,8 @@ const Topic = () => {
   useEffect(() => {
     resetQuizConfigState();
   }, [resetQuizConfigState]);
+
+  useSmoothScrollToTop([currentStepIndex]);
 
   return (
     <FetchErrorBoundary>
